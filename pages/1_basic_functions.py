@@ -4,6 +4,7 @@ import streamlit as st
 
 
 def basic_functions():
+    st.write()
     """
     # A. Basic functions
 
