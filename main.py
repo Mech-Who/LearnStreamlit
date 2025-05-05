@@ -55,8 +55,14 @@ def main():
     # 页眉
     
     梦开始的地方！
-    
+    ![宋雨琦](http://localhost:8501/app/static/syq_hd.jpg)
     ---
+    
+    st.navigation(pages, *, position="sidebar", expanded=False)
+    
+    - pages: List[st.Page|str]|Dict[str, st.Page|str], 应用程序的可用页面。页面对象只能是st.Page对象或者page的路径。如果需要自定义页面的标题等信息，则必须使用st.Page
+    - position: str, 导航菜单的位置。如果这是 "sidebar" （默认），则导航 Widget 将显示在侧边栏的顶部。如果 this is "hidden" ，则不显示 Navigation Widget。如果pages只有一个页面，则此选项失效，且不会显示导航菜单。
+    - expanded: bool, 是否应展开导航菜单。如果这是 False （默认），导航菜单将折叠并包含一个 按钮可在要显示的页面过多时查看更多选项。 如果为 True ，则导航菜单将始终展开;不会显示折叠菜单的按钮。
     """
 
     # Set up navigation
@@ -76,15 +82,17 @@ def main():
     
     只要当前作用域中使用了st，就可以通过直接写文本的方式来写markdown，无需通过`st.write()`函数来写固定的markdown文本(格式化字符串也可以）！因此，可以通过以下方式来快速编写页面内容：
     ```python
-    # new_file.py
+    # new_page.py
     import streamlit as st
     
     def page_name():
         st.write()
-        "# 页面标题"
-        <字符串>
-        "一些文字"
-        "由于这里无法使用三引号来写，因此只能一行一行写"
+        \"\"\"
+        # 页面标题
+        
+        各种Markdown文字
+        一些文字
+        \"\"\"
         
     if __name__j == "__main__":
         page_name()

@@ -25,15 +25,41 @@ def layout():
     """
     ## 3. add different widgets in same column as content
     
-    create by: `left_column, right_column = st.columns(2)`
-    """
+    st.columns(spec, *, gap="small", vertical_alignment="top", border=False)
+    
+    - spec: int|Tuple[float|int], 使用单个数字时，将创建相同大小的多个列，数字的值就是创建的列的个数；当使用Tuple或List的方式时，将按照数字呈现的关系来创建不同大小的多个列，数字的个数就是创建的列的个数
+    - gap: str, 列之间的间隙大小，("small", "medium", "large")。默认值为 "small" 。
+    - vertical_alignment: str, 列内内容的垂直对齐方式，("top", "center", "bottom")。默认值为 "top" .
+    - border: bool, 是否在列容器周围显示边框。如果这是 False （默认），则不显示边框。如果为 True ，则每列周围会显示一个边框。
+    
+    创建两列：
+    ```python
     left_column, right_column = st.columns(2)
+    ```
+    """
+    left_column, right_column = st.columns(2, border=True)
     # You can use a column just like st.sidebar:
-    left_column.button("set left column by: `left_column.button()`(create a button)")
+    with left_column:
+        """
+        创建按钮：
+        ```python
+        left_column.button()
+        ```
+        """
+        if left_column.button("点一点"):
+            "按下！"
+        else:
+            "松开！"
 
     # Or even better, call Streamlit functions inside a "with" block:
     with right_column:
-        "use right column by: `with right_column: chosen = st.radio(tips, option_list)` (use by function)"
+        """
+        以使用上下文管理的方式，创建单选框：
+        ```python
+        with right_column:
+            chosen = st.radio(tips, option_list)
+        ```
+        """
         chosen = st.radio(
             "Sorting hat", ("Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin")
         )

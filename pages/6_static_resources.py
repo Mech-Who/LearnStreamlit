@@ -6,6 +6,8 @@ def static_resources():
     """
     # F. Show static resources to user
     
+    ## 1. 作为静态资源服务器使用
+    
     Static resources normally can't be directly reached by users.
     However, we can make it happen:
 
