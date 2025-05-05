@@ -2,6 +2,7 @@ import streamlit as st
 
 
 def widgets():
+    st.write()
     """
     # B. Widgets
 

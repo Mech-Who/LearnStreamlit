@@ -10,6 +10,7 @@ def read2RGB(path: str):
 
 
 def basic_functions():
+    st.write()
     """
     # A. Basic functions
 
